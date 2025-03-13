@@ -1,0 +1,36 @@
+{
+  "name": "crm-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "crm-tool": "bin/server.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/server",
+    "start-watch": "nodemon ./bin/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ApsaraPrabodani/CRM-Tool.git"
+  },
+  "author": "Apsara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ApsaraPrabodani/CRM-Tool/issues"
+  },
+  "homepage": "https://github.com/ApsaraPrabodani/CRM-Tool#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.0.0",
+    "i18n": "^0.15.1",
+    "mysql2": "^3.13.0",
+    "sequelize": "^6.37.6",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
