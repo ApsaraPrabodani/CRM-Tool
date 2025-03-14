@@ -7,5 +7,6 @@
 	"message.success.assign": "Lead assigned successfully",
 	"message.success.lead_update": "Lead updated successfully",
 	"message.error.lead_already_assigned": "Lead already assigned",
-	"messages.validation.attribute_is_integer": "messages.validation.attribute_is_integer"
+	"messages.validation.attribute_is_integer": "{{attribute}} should be integer",
+	"messages.validation.invalid_phone_number": "Invalid phone number format"
 }

@@ -12,17 +12,17 @@ module.exports = (sequelize, Sequelize) => {
         },
         lead_id: {
             type: Sequelize.INTEGER,
-            // references: {
-            //     model: Leads, // References Leads model
-            //     key: 'id'
-            // }
+            references: {
+                model: sequelize.model.Leads, // References Leads model
+                key: 'id'
+            }
         },
         agent_id: {
             type: Sequelize.INTEGER,
-            // references: {
-            //     model: Agents, // References Agent model
-            //     key: 'id'
-            // }
+            references: {
+                model: sequelize.model.Agents, // References Agent model
+                key: 'id'
+            }
         },
         createdAt: {
             field: 'created_at',

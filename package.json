@@ -7,9 +7,10 @@
     "crm-tool": "bin/server.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config=jest.config.js --runInBand ./tests/**/**/*.test.js",
     "start": "node ./bin/server",
-    "start-watch": "nodemon ./bin/server"
+    "start-watch": "nodemon ./bin/server",
+    "test-coverage": "jest --config=jest.config.js --runInBand ./tests/**/**/*.test.js --coverage"
   },
   "repository": {
     "type": "git",
@@ -32,5 +33,12 @@
     "sequelize": "^6.37.6",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    ",supertest": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

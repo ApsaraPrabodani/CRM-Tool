@@ -43,6 +43,10 @@ const validateCreateLead = () => {
                         attribute: 'contact_no'
                     }
                 )
+            },
+            matches: {
+                options: [/^\+?[1-9]\d{1,14}$/], //Accepts "+1234567890", "1234567890"
+                errorMessage: locales.__('messages.validation.invalid_phone_number')
             }
         },
         source_type :{
@@ -58,7 +62,7 @@ const validateCreateLead = () => {
                 options: sourceTypes,
                 errorMessage: locales.__('messages.validation.attribute_is_in', {
                     attribute: 'source_type',
-                    values: sourceTypes.join(',')
+                    expected_values: sourceTypes.join(',')
                 })
 
             }
