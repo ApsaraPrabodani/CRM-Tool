@@ -18,6 +18,12 @@ const sequelize = new Sequelize(CONFIG.database, CONFIG.user, CONFIG.password, {
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.leads = require('./leads.model')(sequelize, Sequelize);
+db.agents = require('./agents.model')(sequelize, Sequelize);
+db.leadAssignments = require('./lead-assignments.model')(sequelize, Sequelize);
+
+db.leadAssignments.belongsTo(db.leads, {foreignKey: 'lead_id'});
+db.leadAssignments.belongsTo(db.agents, {foreignKey: 'agent_id'});
 
 db.QUERY_KEYWORDS = {
     ORDER_BY: {

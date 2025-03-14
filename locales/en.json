@@ -1,0 +1,11 @@
+{
+	"messages.validation.attribute_is_numeric": "{{attribute}} should be numeric",
+	"messages.validation.attribute_is_string": "{{attribute}} should be string",
+	"messages.validation.attribute_is_in": "The {{attribute}} value should be one of [{{expected_values}}].",
+	"messages.validation.attribute_is_required": "{{attribute}} is required",
+	"message.success.lead_create": "Lead created successfully",
+	"message.success.assign": "Lead assigned successfully",
+	"message.success.lead_update": "Lead updated successfully",
+	"message.error.lead_already_assigned": "Lead already assigned",
+	"messages.validation.attribute_is_integer": "messages.validation.attribute_is_integer"
+}
