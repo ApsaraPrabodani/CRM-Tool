@@ -7,14 +7,15 @@ class CommonConstants {
         };
     }
     static get LEAD_STATUS() {
-        return  Object.freeze({
+        // return  Object.freeze({
+        return {
             UNASSIGNED: 'unassigned',
             ASSIGNED: 'assigned',
             RESERVED: 'reserved',
             FINANCIAL_APPROVED: 'financial approved',
             LEGAL_FINALIZED: 'legal finalized',
             SOLD: 'sold'
-        });
+        }
     }
 }
 

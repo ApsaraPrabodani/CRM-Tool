@@ -1,6 +1,6 @@
 const { checkSchema } = require('express-validator');
 const {locales} = require('../locales');
-const {LEAD_SOURCE_TYPES} = require('../constants/common.contant');
+const {LEAD_SOURCE_TYPES, LEAD_STATUS} = require('../constants/common.contant');
 
 
 const validateCreateLead = () => {
@@ -122,9 +122,56 @@ const validateAssignLead = () => {
             toInt: true
         }
     });
-}
+};
+
+const validateGetLeadList = () => {
+    const leadStatus = Object.values(LEAD_STATUS);
+    return checkSchema({
+        status: {
+            optional: {options: {nullable: false}},
+            isString : {
+                errorMessage:  locales.__(
+                    'messages.validation.attribute_is_string',
+                    {
+                        attribute: 'status'
+                    }
+                )
+            },
+            isIn: {
+                options: leadStatus,
+                errorMessage: locales.__('messages.validation.attribute_is_in', {
+                    attribute: 'status',
+                    expected_values: leadStatus.join(',')
+                })
+            }
+        },
+        agent_id:{
+            optional: {options: {nullable: false}},
+            isInt : {
+                errorMessage:  locales.__(
+                    'messages.validation.attribute_is_integer',
+                    {
+                        attribute: 'agent_id'
+                    }
+                )
+            },
+        },
+        agent: {
+            optional: {options: {nullable: false}},
+            isString : {
+                errorMessage:  locales.__(
+                    'messages.validation.attribute_is_string',
+                    {
+                        attribute: 'agent'
+                    }
+                )
+            },
+        }
+    });
+};
 
 module.exports = {
     validateCreateLead,
-    validateAssignLead
+    validateAssignLead,
+    validateGetLeadList
 }

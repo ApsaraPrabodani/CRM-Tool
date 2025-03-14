@@ -49,6 +49,61 @@ router.post(
     leadsController.createLead
 )
 
+
+//Get Lead List
+/**
+ * @swagger
+ * '/api/v1/leads':
+ *  get:
+ *     tags:
+ *     - Lead Controller
+ *     summary: Get Lead list
+ *     parameters:
+ *      - in: query
+ *        name: page
+ *        schema:
+ *          type: integer
+ *        required: false
+ *        description: page number.
+ *      - in: query
+ *        name: per_page
+ *        schema:
+ *          type: integer
+ *        required: false
+ *        description: per_page count.
+ *      - in: query
+ *        name: status
+ *        schema:
+ *          type: string
+ *        required: false
+ *        description: status of the leads shoulb be filter
+ *      - in: query
+ *        name: agent
+ *        schema:
+ *          type: string
+ *        required: false
+ *        description: name of the agent which assigned to leads to filter
+ *      - in: query
+ *        name: agent_id
+ *        schema:
+ *          type: integer
+ *        required: false
+ *        description: agent_id  which assighed to leads
+ *     responses:
+ *      201:
+ *        description: Rerieved Data
+ *      409:
+ *        description: Conflict
+ *      404:
+ *        description: Not Found
+ *      500:
+ *        description: Server Error
+ */
+router.get(
+    '/',
+    leadValidator.validateGetLeadList(),
+    leadsController.getAllLeads
+)
 // Assign Lead
 /**
  * @swagger
