@@ -17,6 +17,21 @@ class CommonConstants {
             SOLD: 'sold'
         }
     }
+
+    static get USER_GROUP() {
+        return {
+            ADMIN: {
+                id: 1,
+                name: 'Admin',
+                displayName: 'Admin'
+            },
+            SALES_AGENT: {
+                id: 2,
+                name: 'Sales Agent',
+                displayName: 'Agent'
+            }
+        };
+    }
 }
 
 module.exports = CommonConstants;

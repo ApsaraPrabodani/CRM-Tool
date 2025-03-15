@@ -1,4 +1,5 @@
 const { validationResult } = require('express-validator');
+const { isNull } = require('lodash');
 const { errorFormatter } = require('../validators/error.validator');
 const {
     responseError,
@@ -46,7 +47,7 @@ const assignLead = async (req, res) => {
             .throw();
 
         const isUnassignUser = await leadService.isUnAssignedUser(req.body.lead_id);
-        if (isUnassignUser !== null) {
+        if (isNull(isUnassignUser)) {
             throw new Error(locales.__('message.error.lead_already_assigned'));
         }
 

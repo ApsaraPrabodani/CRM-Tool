@@ -41,7 +41,7 @@ class LeadService {
     async isUnAssignedUser(leadId) {
         return await Leads.findOne({
             where: {
-                id: leadId,
+                id: parseInt(leadId),
                 status : LEAD_STATUS.UNASSIGNED
             }
         });

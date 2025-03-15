@@ -24,6 +24,18 @@ module.exports = (sequelize, Sequelize) => {
                 key: 'id'
             }
         },
+        follow_up_status :{
+            type: DataTypes.ENUM('inprogress', 'not_interested')
+        },
+        preferred_property_type: {
+            type: Sequelize.STRING
+        },
+        budget: {
+            type: Sequelize.DECIMAL
+        },
+        notes : {
+            type: Sequelize.TEXT,
+        },
         createdAt: {
             field: 'created_at',
             type: Sequelize.DATE

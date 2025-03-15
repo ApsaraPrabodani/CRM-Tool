@@ -20,7 +20,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         status: {
             type: DataTypes.ENUM('unassigned', 'assigned', 'reserved', 'financial approved', 'legal finalized', 'sold'),
-            // defaultValue: LEAD_STATUS.UNASSIGNED
+            defaultValue: LEAD_STATUS.UNASSIGNED
         },
         contact_no: {
             type: Sequelize.STRING

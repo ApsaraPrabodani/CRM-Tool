@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const leadsController = require('../../controller/leads.controller');
 const leadValidator = require('../../validators/leads.validator');
-
+const roleMiddleware = require('../../middleware/role.miidleware');
+const { USER_GROUP } = require('../../constants/common.contant');
 
 // Create Lead
 /**
@@ -45,6 +46,9 @@ const leadValidator = require('../../validators/leads.validator');
  */
 router.post(
     '/',
+    roleMiddleware( // Handling role based access
+        USER_GROUP.ADMIN.id
+    ),
     leadValidator.validateCreateLead(),
     leadsController.createLead
 )
@@ -141,13 +145,11 @@ router.get(
 
 router.post(
     '/assign',
+    roleMiddleware( // Handling role based access
+        USER_GROUP.ADMIN.id
+    ),
     leadValidator.validateAssignLead(),
     leadsController.assignLead
 )
-
-// router.patch(
-//     '/:id',
-//     leadsController.updateLead
-// )
 
 module.exports = router;
